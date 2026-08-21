@@ -1,83 +1,38 @@
-# AWS Resource Inventory Scanner
+# AWS Resource Checker
 
-A read-only Bash script that scans AWS resources across all enabled regions and generates a detailed infrastructure inventory report.
+A comprehensive shell script to check all AWS resources across all regions.
 
-## Features
+![Screenshot](public/screenshot1.png)
 
-- Scans all enabled AWS regions
-- Checks resources region by region
-- Generates a timestamped report
-- Read-only — does not create, modify, stop, or delete resources
-- Handles unavailable services or missing permissions without stopping the entire scan
+## 📋 Overview
 
-### AWS Services Checked
+This script automatically checks various AWS resources including EC2, S3, Lambda, DynamoDB, RDS, VPC, SNS, and SQS across all AWS regions. It provides a color-coded output showing the status of each resource.
 
-- EC2 Instances
-- EBS Volumes & Snapshots
-- AMI Images
-- VPCs
-- Subnets
-- Security Groups
-- Elastic IPs
-- Load Balancers
-- Target Groups
-- S3 Buckets
-- IAM Users, Roles & Policies
-- RDS Databases & Clusters
-- DynamoDB
-- Lambda
-- ECS
-- ECR
-- EKS
-- API Gateway
-- CloudWatch Logs & Alarms
-- Secrets Manager
-- SSM Parameters
-- Auto Scaling Groups
-- Route 53
-- CloudFront
-- SQS
-- SNS
-- KMS
-- ElastiCache
-- Step Functions
-- EventBridge
+## 🖥️ Supported Linux Distributions
 
-## Requirements
+### ✅ Fully Tested
+- **Fedora** (33+)
+- **RHEL** (8+)
+- **CentOS** (8+)
+- **Ubuntu** (20.04+)
+- **Debian** (11+)
+- **AlmaLinux** (8+)
+- **Rocky Linux** (8+)
 
-- Bash
-- AWS CLI v2
-- Configured AWS credentials
-- Required AWS IAM read permissions
+### ✅ Compatible
+- **Amazon Linux** 2
+- **openSUSE** (15+)
+- **Arch Linux** (with AUR packages)
 
-The script does **not** require Python, Node.js, Docker, or any additional runtime.
+## 📦 Prerequisites
 
-## Supported Linux Distributions
-
-The script is designed for Linux systems with Bash and AWS CLI installed.
-
-Tested/expected to work on:
-
-- Fedora
-- Ubuntu
-- Debian
-- Arch Linux
-- Linux Mint
-- RHEL
-- Rocky Linux
-- AlmaLinux
-- openSUSE
-- Amazon Linux
-
-It should also work on other Linux distributions that provide:
-
-- Bash
-- AWS CLI
-- Standard Unix utilities such as `date`, `sort`, `mkdir`, and `tee`
-
-## AWS Authentication
-
-Configure AWS credentials using:
-
+### 1. AWS CLI
 ```bash
-aws configure
+# Fedora/RHEL/CentOS
+sudo dnf install awscli
+
+# Ubuntu/Debian
+sudo apt-get install awscli
+
+# All distributions (via pip)
+pip3 install awscli --upgrade
